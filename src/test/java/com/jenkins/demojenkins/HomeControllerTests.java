@@ -24,6 +24,7 @@ public class HomeControllerTests {
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/home/helloworld"))
                 .andExpect(status().isOk())
                 .andReturn();
+        Assertions.assertNotNull(result.getResponse().getContentAsString());
         Assertions.assertEquals("hello world!!",result.getResponse().getContentAsString());
     }
 }
